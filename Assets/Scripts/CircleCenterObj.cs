@@ -50,6 +50,7 @@ public class CircleCenterObj : MonoBehaviour
                 gunHeat = TimeBetweenShots;
                
                 var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                
                 Rigidbody rb = bullet.GetComponent<Rigidbody>(); 
 
                 bulletSpawnPoint.transform.LookAt(unityChanPosition);

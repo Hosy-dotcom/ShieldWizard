@@ -8,8 +8,9 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(bulletPrefab);
+        
         Debug.Log("Unity Chan Was Shot");
+        Destroy(bulletPrefab);
 
     }
 
