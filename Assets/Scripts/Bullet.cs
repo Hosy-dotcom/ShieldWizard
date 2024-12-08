@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    public delegate void BulletHitEvent(GameObject hitObject);
+    public event BulletHitEvent OnBulletHit;
 
     private void OnCollisionEnter(Collision collision)
     {
         
-        Debug.Log("Unity Chan Was Shot");
-        Destroy(bulletPrefab);
+        Debug.Log("wizard is killed");
+        OnBulletHit?.Invoke(collision.gameObject);
+        Destroy(gameObject);
+        
 
     }
 
