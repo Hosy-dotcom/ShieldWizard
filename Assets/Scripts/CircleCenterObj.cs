@@ -55,6 +55,7 @@ public class CircleCenterObj : MonoBehaviour
 
                 bulletSpawnPoint.transform.LookAt(unityChanPosition);
                 rb.velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
+            Destroy(bullet,4);
         }
         
 

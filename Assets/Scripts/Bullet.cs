@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        Debug.Log("wizard is killed");
+        
         OnBulletHit?.Invoke(collision.gameObject);
         Destroy(gameObject);
         
