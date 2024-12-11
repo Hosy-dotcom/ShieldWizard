@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Gun
   - Ember
+  - Bullet
+  - Wizard
   layers:
   - Default
   - TransparentFX
