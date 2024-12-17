@@ -6,26 +6,29 @@ using static UnityEngine.GraphicsBuffer;
 public class CircleCenterObj : MonoBehaviour
 {
     
-    [SerializeField] private float speed = 0.5f;
+    [SerializeField] private float speed = 0.1f;
     [SerializeField] private GameObject unityChan;
     [SerializeField] private GameObject wizard;
     [SerializeField] private bool moveClockwise = true;
     [SerializeField] private float radiusOffset = -20f;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float bulletSpeed = 100;
+    [SerializeField] private float bulletSpeed = 100f;
     private float angle = 0f;
     private float directon = -1;
     private Vector3 unityChanPosition;    
     private float gunHeat;
     private const float TimeBetweenShots = 1f; //seconds
+
     
-
-
     // Update is called once per frame
     void Update()
     {
-        unityChanPosition=unityChan.transform.position;
+        //random speed and bulletspeed
+        speed = Random.Range(0.1f, 0.3f);
+        bulletSpeed = Random.Range(50f, 75f);
+
+        unityChanPosition =unityChan.transform.position;
 
 
         directon=moveClockwise ? -1 : 1;

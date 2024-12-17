@@ -1,0 +1,38 @@
+{
+    "ShieldandShoot": {
+        "checkpoints": [
+            {
+                "steps": 499961,
+                "file_path": "results/Run_ShootOnly2/ShieldandShoot/ShieldandShoot-499961.onnx",
+                "reward": -0.9195902058518515,
+                "creation_time": 1734478612.406382,
+                "auxillary_file_paths": [
+                    "results/Run_ShootOnly2/ShieldandShoot/ShieldandShoot-499961.pt"
+                ]
+            },
+            {
+                "steps": 618158,
+                "file_path": "results/Run_ShootOnly2/ShieldandShoot/ShieldandShoot-618158.onnx",
+                "reward": -0.9838746058677676,
+                "creation_time": 1734478769.542433,
+                "auxillary_file_paths": [
+                    "results/Run_ShootOnly2/ShieldandShoot/ShieldandShoot-618158.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 618158,
+            "file_path": "results/Run_ShootOnly2/ShieldandShoot.onnx",
+            "reward": -0.9838746058677676,
+            "creation_time": 1734478769.542433,
+            "auxillary_file_paths": [
+                "results/Run_ShootOnly2/ShieldandShoot/ShieldandShoot-618158.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.11.0"
+    }
+}
