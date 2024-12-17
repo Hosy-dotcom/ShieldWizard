@@ -1,7 +1,7 @@
 behaviors:
   ShieldandShoot:
     trainer_type: ppo
-    time_horizon: 32 # Typical range: 32 - 2048
+    time_horizon: 64 # Typical range: 32 - 2048
     max_steps: 1e6 # Typical range: 5e5 - 1e7
     hyperparameters:
       learning_rate: 1e-4 # Typical range: 1e-5 - 1e-3
