@@ -1,0 +1,29 @@
+{
+    "ShieldandShoot": {
+        "checkpoints": [
+            {
+                "steps": 29067,
+                "file_path": "results/shootonlyreset/ShieldandShoot/ShieldandShoot-29067.onnx",
+                "reward": 1.214375058771111,
+                "creation_time": 1734568015.187509,
+                "auxillary_file_paths": [
+                    "results/shootonlyreset/ShieldandShoot/ShieldandShoot-29067.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 29067,
+            "file_path": "results/shootonlyreset/ShieldandShoot.onnx",
+            "reward": 1.214375058771111,
+            "creation_time": 1734568015.187509,
+            "auxillary_file_paths": [
+                "results/shootonlyreset/ShieldandShoot/ShieldandShoot-29067.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.11.0"
+    }
+}

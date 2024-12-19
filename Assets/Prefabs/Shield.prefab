@@ -119,4 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collisionTag:
-  - Laser
+  - Ember
