@@ -20,7 +20,13 @@ public class CircleCenterObj : MonoBehaviour
     private float gunHeat;
     private const float TimeBetweenShots = 1f; //seconds
 
-    
+
+    public void ResetWizardPosition()
+    {
+        //transform.localPosition = new Vector3(-265f, 0, -11f);
+        angle = 0f;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -39,28 +45,28 @@ public class CircleCenterObj : MonoBehaviour
 
         wizard.transform.position = new Vector3(unityChanPosition.x + x, 0, unityChanPosition.z + z);
         transform.LookAt(unityChanPosition);
-        
 
-        if (gunHeat > 0)
-        {
-            gunHeat -= Time.deltaTime;
-        }
 
-        
-            if (gunHeat <= 0)
-            {
-                // heat the gun up so we have to wait a bit before shooting again
-                gunHeat = TimeBetweenShots;
-               
-                var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-                
-                Rigidbody rb = bullet.GetComponent<Rigidbody>(); 
+        //if (gunHeat > 0)
+        //{
+        //    gunHeat -= Time.deltaTime;
+        //}
 
-                bulletSpawnPoint.transform.LookAt(unityChanPosition);
-                rb.velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
-            Destroy(bullet,4);
-        }
-        
+
+        //if (gunHeat <= 0)
+        //{
+        //    // heat the gun up so we have to wait a bit before shooting again
+        //    gunHeat = TimeBetweenShots;
+
+        //    var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+
+        //    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+
+        //    bulletSpawnPoint.transform.LookAt(unityChanPosition);
+        //    rb.velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
+        //    Destroy(bullet, 4);
+        //}
+
 
     }
     

@@ -10,33 +10,38 @@ public class MyAgent : Agent
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private float bulletSpeed=100f;
-    [SerializeField] private Transform wizardStartingPoint;
+    [SerializeField] private Transform wizard;
     [SerializeField] private GameObject shieldObject;
     [SerializeField] private Transform shieldSpawnPoint;
+    [SerializeField] private CircleCenterObj circle;
     
 
-    //private bool shieldActivated=false;
-    //private float gunHeat;
-    //private const float TimeBetweenShots = 0.2f;
+
+    //private bool shieldActivated = false;
+    private float gunHeat;
+    private const float TimeBetweenShots = 0.2f;
     private float shieldHeat;
-    private const float respawnTime = 2f;
+    private float respawnTime = 2f;
 
 
 
 
     public override void OnEpisodeBegin()
     {
-        wizardStartingPoint.localPosition=new Vector3(-265f,0,-11f);
+        
+        circle.ResetWizardPosition();
         transform.rotation = Quaternion.Euler(0, 0, 0);
 
         //Radomize bulletSpeed
         bulletSpeed = Random.Range(100f, 150f);
+        respawnTime = Random.Range(1.5f, 2.9f);
         Debug.Log("Episode Begins");
 
     }
     public override void CollectObservations(VectorSensor sensor)
     {
         
+
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
@@ -45,7 +50,7 @@ public class MyAgent : Agent
 
         //rotate the agent
         transform.rotation = Quaternion.Euler(0, actionSteering * 180, 0);
-
+        //AddReward(-0.01f);
         //shoot
         
         Shooting();
@@ -60,16 +65,16 @@ public class MyAgent : Agent
     {
 
 
-        //if (gunHeat > 0)
-        //{
-        //    gunHeat -= Time.deltaTime;
-        //}
+        if (gunHeat > 0)
+        {
+            gunHeat -= Time.deltaTime;
+        }
 
 
-        //if (gunHeat <= 0)
-        //{
+        if (gunHeat <= 0)
+        {
             // heat the gun up so we have to wait a bit before shooting again
-            //gunHeat = TimeBetweenShots;
+            gunHeat = TimeBetweenShots;
 
 
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
@@ -84,7 +89,7 @@ public class MyAgent : Agent
 
             rb.velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
             Destroy(bullet, 2);
-        //}
+        }
 
     }
     
@@ -99,7 +104,7 @@ public class MyAgent : Agent
 
         if (shieldHeat <= 0)
         {
-            // heat the gun up so we have to wait a bit before shooting again
+
             shieldHeat = respawnTime;
             var shield = Instantiate(shieldObject, shieldSpawnPoint.position, shieldSpawnPoint.rotation);
             ShieldCollision shieldCollision = shield.GetComponent<ShieldCollision>();
@@ -109,9 +114,9 @@ public class MyAgent : Agent
             {
                 shieldCollision.OnShieldHit += HandleShieldHit;
             }
-            Destroy(shield, 0.3f);
-            Debug.Log("Shield Destory");
-            
+            Destroy(shield, 1f);
+            //Debug.Log("Shield Destory");
+
         }
 
     }
@@ -120,8 +125,6 @@ public class MyAgent : Agent
     void HandleBulletHit(GameObject hitObject)
     {
         
-        
-
         // Example: Check if it's an enemy
         if (hitObject.CompareTag("Wizard"))
         {
@@ -138,20 +141,19 @@ public class MyAgent : Agent
     }
     void HandleShieldHit(GameObject hitObject)
     {
-        
-
 
         // Example: Check if it's an enemy
         if (hitObject.CompareTag("Ember"))
         {
             Debug.Log("Shield Hit By Ember");
-            
-            AddReward(0.1f);
+            Destroy(hitObject);
+            AddReward(1f);
            
         }
         else
         {
             Debug.Log($"Shield detected the bullet hit: {hitObject.name}");
+            
             
         }
     }
@@ -174,12 +176,13 @@ public class MyAgent : Agent
     }
     private void OnTriggerEnter(Collider other)
     {
-    if (other.tag == "Ember") {
-        Debug.Log("Unity Chan Was Shot by " + other.name);
-        Destroy(other.gameObject);
-            AddReward(-0.1f);
+        if (other.tag == "Ember")
+        {
+            Debug.Log("Unity Chan Was Shot by " + other.name);
+            Destroy(other.gameObject);
+            AddReward(-1f);
             EndEpisode();
-    }
+        }
 
         
     }

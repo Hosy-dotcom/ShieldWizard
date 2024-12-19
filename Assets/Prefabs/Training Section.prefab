@@ -189,13 +189,14 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   bulletPrefab: {fileID: 2561546728203048696, guid: ace4c5c6d20c0ef479496d57ce11a311, type: 3}
   bulletSpawnPoint: {fileID: 135715785764752555}
   bulletSpeed: 100
-  wizardStartingPoint: {fileID: 7964045457393956456}
+  wizard: {fileID: 7964045457393956456}
   shieldObject: {fileID: 5203241748511996075, guid: 0a18b3285e530c24aa69bf369c276a99, type: 3}
   shieldSpawnPoint: {fileID: 5038827154624596941}
+  circle: {fileID: 8502321817519743167}
 --- !u!114 &3547998661060710467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,18 +256,19 @@ MonoBehaviour:
   m_SensorName: RayPerceptionSensor
   m_DetectableTags:
   - Ember
+  - Wizard
   m_RaysPerDirection: 30
   m_MaxRayDegrees: 180
-  m_SphereCastRadius: 0.72
-  m_RayLength: 20
+  m_SphereCastRadius: 0.5
+  m_RayLength: 60
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 0, g: 0, b: 0, a: 1}
-  m_StartVerticalOffset: 10
-  m_EndVerticalOffset: 0.4
+  m_StartVerticalOffset: 5
+  m_EndVerticalOffset: 5
 --- !u!136 &2743296598733952299
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1071,7 +1073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4063552230360950, guid: dbf7a0c9d76b77a40af3104feac0641d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -265
+      value: -324.9952
       objectReference: {fileID: 0}
     - target: {fileID: 4063552230360950, guid: dbf7a0c9d76b77a40af3104feac0641d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1079,7 +1081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4063552230360950, guid: dbf7a0c9d76b77a40af3104feac0641d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11
+      value: 40.75555
       objectReference: {fileID: 0}
     - target: {fileID: 4063552230360950, guid: dbf7a0c9d76b77a40af3104feac0641d, type: 3}
       propertyPath: m_LocalRotation.w
