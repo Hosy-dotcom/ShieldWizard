@@ -47,27 +47,27 @@ public class CircleCenterObj : MonoBehaviour
         transform.LookAt(unityChanPosition);
 
 
-        //if (gunHeat > 0)
-        //{
-        //    gunHeat -= Time.deltaTime;
-        //}
+        if (gunHeat > 0)
+        {
+            gunHeat -= Time.deltaTime;
+        }
 
 
-        //if (gunHeat <= 0)
-        //{
-        //    // heat the gun up so we have to wait a bit before shooting again
-        //    gunHeat = TimeBetweenShots;
+        if (gunHeat <= 0)
+        {
+            // heat the gun up so we have to wait a bit before shooting again
+            gunHeat = TimeBetweenShots;
 
-        //    var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 
-        //    Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
-        //    bulletSpawnPoint.transform.LookAt(unityChanPosition);
-        //    rb.velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
-        //    Destroy(bullet, 4);
-        //}
+            bulletSpawnPoint.transform.LookAt(unityChanPosition);
+            rb.velocity = bulletSpawnPoint.transform.forward * bulletSpeed;
+            Destroy(bullet, 4);
+        }
 
 
     }
-    
+
 }
