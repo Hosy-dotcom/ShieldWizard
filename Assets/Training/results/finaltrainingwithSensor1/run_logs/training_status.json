@@ -1,0 +1,65 @@
+{
+    "ShieldandShoot": {
+        "checkpoints": [
+            {
+                "steps": 2999944,
+                "file_path": "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-2999944.onnx",
+                "reward": 0.8047311793091476,
+                "creation_time": 1734595193.936159,
+                "auxillary_file_paths": [
+                    "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-2999944.pt"
+                ]
+            },
+            {
+                "steps": 3499943,
+                "file_path": "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-3499943.onnx",
+                "reward": 0.3565454591404308,
+                "creation_time": 1734595810.8139021,
+                "auxillary_file_paths": [
+                    "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-3499943.pt"
+                ]
+            },
+            {
+                "steps": 3697708,
+                "file_path": "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-3697708.onnx",
+                "reward": 0.7537500143051148,
+                "creation_time": 1734596407.645061,
+                "auxillary_file_paths": [
+                    "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-3697708.pt"
+                ]
+            },
+            {
+                "steps": 3999801,
+                "file_path": "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-3999801.onnx",
+                "reward": -0.7185714244842529,
+                "creation_time": 1734597134.883683,
+                "auxillary_file_paths": [
+                    "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-3999801.pt"
+                ]
+            },
+            {
+                "steps": 4015501,
+                "file_path": "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-4015501.onnx",
+                "reward": 0.5183064514590848,
+                "creation_time": 1734597180.7182982,
+                "auxillary_file_paths": [
+                    "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-4015501.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4015501,
+            "file_path": "results/finaltrainingwithSensor1/ShieldandShoot.onnx",
+            "reward": 0.5183064514590848,
+            "creation_time": 1734597180.7182982,
+            "auxillary_file_paths": [
+                "results/finaltrainingwithSensor1/ShieldandShoot/ShieldandShoot-4015501.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.11.0"
+    }
+}

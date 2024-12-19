@@ -1,0 +1,38 @@
+{
+    "ShieldandShoot": {
+        "checkpoints": [
+            {
+                "steps": 499990,
+                "file_path": "results/finaltrainingwithSensor2/ShieldandShoot/ShieldandShoot-499990.onnx",
+                "reward": -0.4599833329659135,
+                "creation_time": 1734598500.357651,
+                "auxillary_file_paths": [
+                    "results/finaltrainingwithSensor2/ShieldandShoot/ShieldandShoot-499990.pt"
+                ]
+            },
+            {
+                "steps": 701024,
+                "file_path": "results/finaltrainingwithSensor2/ShieldandShoot/ShieldandShoot-701024.onnx",
+                "reward": null,
+                "creation_time": 1734598751.4316711,
+                "auxillary_file_paths": [
+                    "results/finaltrainingwithSensor2/ShieldandShoot/ShieldandShoot-701024.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 701024,
+            "file_path": "results/finaltrainingwithSensor2/ShieldandShoot.onnx",
+            "reward": null,
+            "creation_time": 1734598751.4316711,
+            "auxillary_file_paths": [
+                "results/finaltrainingwithSensor2/ShieldandShoot/ShieldandShoot-701024.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.11.0"
+    }
+}

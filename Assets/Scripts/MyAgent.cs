@@ -14,16 +14,15 @@ public class MyAgent : Agent
     [SerializeField] private GameObject shieldObject;
     [SerializeField] private Transform shieldSpawnPoint;
     [SerializeField] private CircleCenterObj circle;
-    
-
+    [SerializeField] private Transform Ember;
 
     //private bool shieldActivated = false;
     private float gunHeat;
     private const float TimeBetweenShots = 0.2f;
     private float shieldHeat;
-    private float respawnTime = 2f;
+    private float respawnTime = 1f;
 
-
+    
 
 
     public override void OnEpisodeBegin()
@@ -34,15 +33,24 @@ public class MyAgent : Agent
 
         //Radomize bulletSpeed
         bulletSpeed = Random.Range(100f, 150f);
-        respawnTime = Random.Range(1.5f, 2.9f);
-        Debug.Log("Episode Begins");
+        
+        //Debug.Log("Episode Begins");
 
     }
     public override void CollectObservations(VectorSensor sensor)
     {
+        sensor.AddObservation(transform.localPosition.x);
+        sensor.AddObservation(transform.localPosition.z);
+
+        sensor.AddObservation(wizard.localPosition.x);
+        sensor.AddObservation(wizard.localPosition.z);
+
+        //sensor.AddObservation(Ember.transform.localPosition.x);
+        //sensor.AddObservation(Ember.transform.localPosition.z);
         
 
     }
+
     public override void OnActionReceived(ActionBuffers actions)
     {
         var actionTaken = actions.ContinuousActions;
@@ -50,15 +58,25 @@ public class MyAgent : Agent
 
         //rotate the agent
         transform.rotation = Quaternion.Euler(0, actionSteering * 180, 0);
-        //AddReward(-0.01f);
-        //shoot
+
+
+
         
-        Shooting();
+
+        float shootAction = actionTaken[1];
+        if (shootAction > 0)
+        {
+            Shooting();
+        }
+        else if (shootAction<0)
+        {
+            Shield();
+        }
+        
         
         
 
-        //Reward if wizard is killed
-        //Shield();
+        
     }
 
     public void Shooting()
@@ -106,15 +124,16 @@ public class MyAgent : Agent
         {
 
             shieldHeat = respawnTime;
+
             var shield = Instantiate(shieldObject, shieldSpawnPoint.position, shieldSpawnPoint.rotation);
             ShieldCollision shieldCollision = shield.GetComponent<ShieldCollision>();
             
-            Debug.Log("Shield Created");
+            //Debug.Log("Shield Created");
             if (shieldCollision != null)
             {
                 shieldCollision.OnShieldHit += HandleShieldHit;
             }
-            Destroy(shield, 1f);
+            Destroy(shield, 0.5f);
             //Debug.Log("Shield Destory");
 
         }
@@ -152,7 +171,7 @@ public class MyAgent : Agent
         }
         else
         {
-            Debug.Log($"Shield detected the bullet hit: {hitObject.name}");
+            //Debug.Log($"Shield detected the bullet hit: {hitObject.name}");
             
             
         }
@@ -162,8 +181,10 @@ public class MyAgent : Agent
         var actions = actionsOut.ContinuousActions;
 
         actions[0] = 0;
+        actions[1] = 0;
 
         var horizontal = Input.GetAxisRaw("Horizontal");
+        var vertical = Input.GetAxisRaw("Vertical");
         if (horizontal == -1)
         {
             actions[0] = -1;
@@ -172,7 +193,16 @@ public class MyAgent : Agent
         {
             actions[0] = 1;
         }
+        if (vertical == -1)
+        {
+            actions[1] = -1;
+        }
+        else if(vertical==1)
+        {
+            actions[1] = 1;
+        }
 
+        
     }
     private void OnTriggerEnter(Collider other)
     {

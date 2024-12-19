@@ -147,8 +147,8 @@ GameObject:
   - component: {fileID: 5986145710706135279}
   - component: {fileID: 3547998661060710467}
   - component: {fileID: 4387464541070006275}
-  - component: {fileID: 7609620169179974230}
   - component: {fileID: 2743296598733952299}
+  - component: {fileID: 6699584271550106862}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Untagged
@@ -197,6 +197,7 @@ MonoBehaviour:
   shieldObject: {fileID: 5203241748511996075, guid: 0a18b3285e530c24aa69bf369c276a99, type: 3}
   shieldSpawnPoint: {fileID: 5038827154624596941}
   circle: {fileID: 8502321817519743167}
+  Ember: {fileID: 5403277320557124121, guid: a70225b40e71f2648af6770db27f86b3, type: 3}
 --- !u!114 &3547998661060710467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,12 +211,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 0
+    VectorObservationSize: 4
     NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 1
+      m_NumContinuousActions: 2
       BranchSizes: 
-    VectorActionSize: 01000000
+    VectorActionSize: 02000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -241,34 +242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 1
   TakeActionsBetweenDecisions: 0
---- !u!114 &7609620169179974230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5363420906149150429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SensorName: RayPerceptionSensor
-  m_DetectableTags:
-  - Ember
-  - Wizard
-  m_RaysPerDirection: 30
-  m_MaxRayDegrees: 180
-  m_SphereCastRadius: 0.5
-  m_RayLength: 60
-  m_RayLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967291
-  m_ObservationStacks: 1
-  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
-  rayMissColor: {r: 0, g: 0, b: 0, a: 1}
-  m_StartVerticalOffset: 5
-  m_EndVerticalOffset: 5
 --- !u!136 &2743296598733952299
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -292,6 +265,33 @@ CapsuleCollider:
   m_Height: 10.408265
   m_Direction: 1
   m_Center: {x: -0.07289028, y: 4.890777, z: -0.078581095}
+--- !u!114 &6699584271550106862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5363420906149150429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor
+  m_DetectableTags:
+  - Ember
+  m_RaysPerDirection: 36
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0
+  m_RayLength: 29
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 8
+  m_EndVerticalOffset: 0
 --- !u!1 &7089690473116933487
 GameObject:
   m_ObjectHideFlags: 0
