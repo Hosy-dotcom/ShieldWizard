@@ -23,12 +23,6 @@ Once the training is complete, you can run the trained model inside Unity by exe
 - Experimenting with different RL algorithms for comparison.
 - Enhancing visual effects and adding more enemy attack patterns.
 
-## Contributing
-Contributions are welcome! Feel free to fork the repo and submit pull requests.
-
-## License
-[MIT License](LICENSE)
-
 ---
 This project demonstrates the potential of reinforcement learning in dynamic combat scenarios. If you find it interesting, give it a ⭐ on GitHub!
 
