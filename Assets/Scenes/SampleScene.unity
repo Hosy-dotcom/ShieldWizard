@@ -668,9 +668,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 8.76
+  near clip plane: 0.31
   far clip plane: 34.04
-  field of view: 45
+  field of view: 73
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -697,7 +697,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: -0.49274886, y: -0.5071475, z: 0.5071475, w: -0.49274886}
-  m_LocalPosition: {x: -264.48, y: 14.8, z: -6}
+  m_LocalPosition: {x: -264.56, y: 18.9, z: 41.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: My Behavior
+  m_BehaviorName: ShieldandShoot
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
@@ -1099,10 +1099,8 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 2041152549}
   bulletSpeed: 50
   wizardStartingPoint: {fileID: 1635750475}
-  shieldObject: {fileID: 0}
+  shieldObject: {fileID: 5203241748511996075, guid: 0a18b3285e530c24aa69bf369c276a99, type: 3}
   shieldSpawnPoint: {fileID: 1242222887}
-  shieldDuration: 5
-  respawnTime: 10
 --- !u!136 &1265019532
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1301,7 +1299,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635750470}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d56b31ef667cea540ad00b43a1d21e0f, type: 3}
   m_Name: 
